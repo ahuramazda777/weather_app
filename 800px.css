@@ -1,0 +1,14 @@
+:root {
+    font-size: 70%;
+}
+
+div.weather__temp {
+    flex-flow: column;
+   
+}
+
+div.weather__temp > div {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+} 
