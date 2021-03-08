@@ -110,7 +110,6 @@ class Weather {
 const url = `http://api.openweathermap.org/data/2.5/onecall?lat=55.7522&lon=37.6156&exclude=minutely,hourly,alerts&units=metric&appid=4f5ca7bdac6a2274671fce002ad16371`
 
 getData(url).then(data => {
-    console.log(data)
 
     const weather = new Weather('moscow', data)
     let week = weather.getWeeks()
@@ -126,7 +125,7 @@ getData(url).then(data => {
     let currDateInfoSunrise = document.querySelector('.weather__info--data > p:nth-child(2)')
     let currDateInfoSunset = document.querySelector('.weather__info--data > p:nth-child(3)')
 
-    currDateInfoFeelsLike!.textContent = `Feels like: ${curr.feelsLike} \u2103`
+    currDateInfoFeelsLike!.textContent = `Feels like: ${Math.round(Number(curr.feelsLike))} \u2103`
     currDateInfoSunrise!.textContent = `Sunrise: ${getFullTime(curr.sunrise)}`
     currDateInfoSunset!.textContent = `Sunset: ${getFullTime(curr.sunset)}`
 
@@ -134,7 +133,7 @@ getData(url).then(data => {
     let currDayIcon = document.querySelector('.weather__info-icon__temp > img')
     let currDayTemp = document.querySelector('.weather__info-icon__temp > p')
 
-    currDayTemp!.textContent = `${curr.temperature} \u2103`
+    currDayTemp!.textContent = `${Math.round(Number(curr.temperature))} \u2103`
     currDayIcon!.setAttribute('src', `http://openweathermap.org/img/wn/${curr.weather.icon}@2x.png`)
 
     week.map((day, id) => {
@@ -146,7 +145,7 @@ getData(url).then(data => {
 
         let dayTemp = document.querySelector(`.weather__temp > div:nth-child(${id + 1}) > p:nth-child(3) `)
         let nightTemp = document.querySelector(`.weather__temp > div:nth-child(${id + 1}) > p:nth-child(4) `)
-        dayTemp!.textContent = `${day.dayTemp} \u2103`
-        nightTemp!.textContent = `${day.nightTemp} \u2103`
+        dayTemp!.textContent = `${Math.round(Number(day.dayTemp))} \u2103`
+        nightTemp!.textContent = `${Math.round(Number(day.nightTemp))} \u2103`
     })
 })
