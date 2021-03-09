@@ -125,7 +125,7 @@ var Weather = /** @class */ (function () {
     };
     return Weather;
 }());
-var url = "http://api.openweathermap.org/data/2.5/onecall?lat=55.7522&lon=37.6156&exclude=minutely,hourly,alerts&units=metric&appid=4f5ca7bdac6a2274671fce002ad16371";
+var url = "https://api.openweathermap.org/data/2.5/onecall?lat=55.7522&lon=37.6156&exclude=minutely,hourly,alerts&units=metric&appid=4f5ca7bdac6a2274671fce002ad16371";
 getData(url).then(function (data) {
     var weather = new Weather('moscow', data);
     var week = weather.getWeeks();
@@ -143,7 +143,7 @@ getData(url).then(function (data) {
     var currDayIcon = document.querySelector('.weather__info-icon__temp > img');
     var currDayTemp = document.querySelector('.weather__info-icon__temp > p');
     currDayTemp.textContent = Math.round(Number(curr.temperature)) + " \u2103";
-    currDayIcon.setAttribute('src', "http://openweathermap.org/img/wn/" + curr.weather.icon + "@2x.png");
+    currDayIcon.setAttribute('src', "https://openweathermap.org/img/wn/" + curr.weather.icon + "@2x.png");
     week.map(function (day, id) {
         var dayElement = document.querySelector(".weather__temp > div:nth-child(" + (id + 1) + ") > p:nth-child(1) ");
         dayElement.textContent = day.day;
