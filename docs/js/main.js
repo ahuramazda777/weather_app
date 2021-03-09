@@ -148,7 +148,7 @@ getData(url).then(function (data) {
         var dayElement = document.querySelector(".weather__temp > div:nth-child(" + (id + 1) + ") > p:nth-child(1) ");
         dayElement.textContent = day.day;
         var imgDay = document.querySelector(".weather__temp > div:nth-child(" + (id + 1) + ") > img ");
-        imgDay.setAttribute('src', "http://openweathermap.org/img/wn/" + day.weather.icon + "@2x.png");
+        imgDay.setAttribute('src', "https://openweathermap.org/img/wn/" + day.weather.icon + "@2x.png");
         var dayTemp = document.querySelector(".weather__temp > div:nth-child(" + (id + 1) + ") > p:nth-child(3) ");
         var nightTemp = document.querySelector(".weather__temp > div:nth-child(" + (id + 1) + ") > p:nth-child(4) ");
         dayTemp.textContent = Math.round(Number(day.dayTemp)) + " \u2103";
